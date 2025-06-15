@@ -87,7 +87,7 @@ Passer les questions suivantes (touche entrée)
      echo nom_enseignant | sudo tee -a /etc/vsftpd.userlist
    ```
 
-3. **Maintenant, nous voulons réstreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire (à répéter pour chaque enseignant à nouveau)** :
+3. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire (à répéter pour chaque enseignant)** :
 
    ```bash
      sudo chown nom_enseignant:nom_enseignant /home/nom_enseignant/
@@ -97,7 +97,7 @@ Passer les questions suivantes (touche entrée)
    ```
 chmod 700 = droit d'écriture, de lecture et d'éxecution uniquement pour le propriétaire
 
-4. **Contrôler et modifier le fichier de configuration etc/vsftpd.conf (lignes à ajouter)**
+4. **Contrôler et modifier de nouveau le fichier de configuration etc/vsftpd.conf (des lignes sont à ajouter)**
  
    ```bash
      sudo nano /etc/vsftpd.conf

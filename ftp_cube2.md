@@ -118,7 +118,7 @@ local_root=/home/$USER
    ```
 
 Pour se connecter en ftp, remplir les champs :
-Hôte = nom_ecole.local
+Hôte = nom_ecole.local  
 Nom utilisateur = nom_enseignant
 Mot de passe = Celui définit à la création de l'utilisateur/
 Port : Laisser vide (par défaut il s'agit du port 21)

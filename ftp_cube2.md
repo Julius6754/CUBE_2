@@ -61,13 +61,13 @@ Le serveur FTP est installé. Il est prêt à être configuré !
 
 4. Modifier les variables :
 
-listen=YES
-anonymous_enable=NO
-local_enable=YES
-write_enable=YES (décommenter)
-xferlog_enable=YES (pour consulter les logs)
-chroot_local_user=YES (décommenter)
-pam_service_name=vsftpd
+listen=YES  
+anonymous_enable=NO  
+local_enable=YES  
+write_enable=YES (décommenter)  
+xferlog_enable=YES (pour consulter les logs)  
+chroot_local_user=YES (décommenter)  
+pam_service_name=vsftpd  
 
 # **Étape 3 : Création et droits des utilisateurs**
 
@@ -76,7 +76,7 @@ pam_service_name=vsftpd
    ```bash
      sudo adduser nom_enseignant
    ```
-Mot de passe : azerty-123
+Mot de passe : azerty-123  
 Passer les questions suivantes (touche entrée)
 
 2. Ajouter les utilisateurs dans la liste d'autorisation vsftpd, à faire pour chaque utilisateur (il est possible de créer un script qui automatise le tout) :
@@ -97,13 +97,13 @@ chmod 700 = droit d'écriture, de lecture et d'éxecution uniquement pour le pro
    ```bash
      sudo nano /etc/vsftpd.conf
    ```
-local_enable=YES
-write_enable=YES
-chroot_local_user=YES
-allow_writeable_chroot=YES
-local_umask=022
-user_sub_token=$USER
-local_root=/home/$USER
+local_enable=YES  
+write_enable=YES  
+chroot_local_user=YES  
+allow_writeable_chroot=YES  
+local_umask=022  
+user_sub_token=$USER  
+local_root=/home/$USER  
 
 5. Redémarrer le service vsftpd :
    ```bash
@@ -117,12 +117,16 @@ local_root=/home/$USER
      https://filezilla-project.org/download.php?type=client
    ```
 
-Pour se connecter en ftp, remplir les champs :
-Hôte = nom_ecole.local  
-Nom utilisateur = nom_enseignant
-Mot de passe = Celui définit à la création de l'utilisateur/
-Port : Laisser vide (par défaut il s'agit du port 21)
+2. Pour se connecter en ftp, remplir les champs :
 
-Pour tester, créer un fichier .txt sur le bureau du client windows. Glisser le fichier dans le repertoire / sur FileZila.
-Ensuite, double cliquer sur le fichier créé dans FileZila.
-Par défaut, il est téléchargé dans C:\Users\nom_session
+Hôte = nom_ecole.local  
+Nom utilisateur = nom_enseignant  
+Mot de passe = Celui définit à la création de l'utilisateur/  
+Port : Laisser vide (par défaut il s'agit du port 21)  
+
+3. Pour tester :
+
+Créer un fichier .txt sur le bureau du client windows. 
+Glisser le fichier dans le repertoire / sur FileZila.  
+Ensuite, double cliquer sur le fichier créé dans FileZila.  
+Par défaut, il est téléchargé dans C:\Users\nom_session  

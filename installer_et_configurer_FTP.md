@@ -118,7 +118,7 @@ local_root=/home/$USER
 
 # **Étape 4 : Téléchargement d'un client FTP et test !**
 
-1. **Sur le PC client, télécharger FileZila pour se connecter en FTP** :
+1. **Sur le PC client, télécharger FileZilla pour se connecter en FTP** :
 
    ```bash
      https://filezilla-project.org/download.php?type=client
@@ -134,6 +134,6 @@ Port : Laisser vide (par défaut il s'agit du port 21)
 3. **Pour tester** :
 
 Créer un fichier .txt sur le bureau du client windows. 
-Glisser le fichier dans le repertoire / sur FileZila.  
-Ensuite, double cliquer sur le fichier créé dans FileZila.  
+Glisser le fichier dans le repertoire / sur FileZilla.  
+Ensuite, double cliquer sur le fichier créé dans FileZilla.  
 Par défaut, il est téléchargé dans C:\Users\nom_session  

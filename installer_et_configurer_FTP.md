@@ -26,12 +26,12 @@ Lancer le service vsftpd :
      sudo systemctl start vsftpd
    ```
 
-Activer et lancer le service vsftpd à chaque démarrage :
+Activer et lancer le service vsftpd à chaque démarrage du serveur :
    ```bash
      sudo systemctl enable vsftpd
    ```
 
-Contrôle le bon fonctionnement du service vsftpd :
+Contrôler le bon fonctionnement du service vsftpd :
    ```bash
      sudo systemctl status vsftpd
    ```
@@ -61,7 +61,7 @@ Le port 21 est utilisé pour établir la connexion entre les 2 ordinateurs et le
      sudo nano /etc/vsftpd.conf
    ```
 
-4. **Lignes à modifier** :
+4. **Modifier les lignes** :
 
 listen=YES  
 anonymous_enable=NO  

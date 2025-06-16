@@ -35,7 +35,7 @@ Contrôle le bon fonctionnement du service vsftpd :
    ```bash
      sudo systemctl status vsftpd
    ```
-Nous devrions retrouver "enabled" et "active (running) dans le retour de la commande.
+Nous devrions retrouver "enabled" et "active (running)" dans le retour de la commande.
 
 Le serveur FTP est installé. Il est prêt à être configuré !
      
@@ -128,7 +128,7 @@ local_root=/home/$USER
 
 Hôte = nom_ecole.local  
 Nom utilisateur = nom_enseignant  
-Mot de passe = Celui définit à la création de l'utilisateur/  
+Mot de passe = Celui définit à la création de l'utilisateur  
 Port : Laisser vide (par défaut il s'agit du port 21)  
 
 3. **Pour tester** :

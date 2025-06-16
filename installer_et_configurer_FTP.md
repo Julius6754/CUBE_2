@@ -90,7 +90,7 @@ Passer les questions suivantes (touche entrée)
 3. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire (à répéter pour chaque enseignant)** :
 
    ```bash
-     sudo chown nom_enseignant:nom_enseignant /home/nom_enseignant/
+     sudo chown -R nom_enseignant:nom_enseignant /home/nom_enseignant/
    ```
    ```bash
      sudo chmod 700 /home/nom_enseignant/

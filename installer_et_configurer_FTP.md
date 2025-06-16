@@ -19,7 +19,7 @@ Voir la version de vsftpd installée :
    ```bash
      sudo vsftpd -version
    ```
-Si la commande renvoit une version, l'installation s'est bien déroulée. 
+Si la commande renvoie une version, l'installation s'est bien déroulée. 
 
 Lancer le service vsftpd :
    ```bash

@@ -5,35 +5,35 @@
 Mettre à jour la liste des paquets et mettre à jour les paquets déjà installés.  
 L'argument -y = "yes"
 ```bash
-   sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 
 2. **Installer vsftpd** :
 
 Installer le serveur FTP en ligne de commande :
    ```bash
-     sudo apt install vsftpd -y
+   sudo apt install vsftpd -y
    ```
 
 Voir la version de vsftpd installée :
    ```bash
-     sudo vsftpd -version
+   sudo vsftpd -version
    ```
 Si la commande renvoie une version, l'installation s'est bien déroulée. 
 
 Lancer le service vsftpd :
    ```bash
-     sudo systemctl start vsftpd
+   sudo systemctl start vsftpd
    ```
 
 Activer et lancer le service vsftpd à chaque démarrage du serveur :
    ```bash
-     sudo systemctl enable vsftpd
+   sudo systemctl enable vsftpd
    ```
 
 Contrôler le bon fonctionnement du service vsftpd :
    ```bash
-     sudo systemctl status vsftpd
+   sudo systemctl status vsftpd
    ```
 Nous devrions retrouver "enabled" et "active (running)" dans le retour de la commande.
 
@@ -45,20 +45,20 @@ Le serveur FTP est installé. Il est prêt à être configuré !
 1. **Installer l'utilisateur de gestion de pare-feu ufw**  :
 
    ```bash
-     sudo apt install ufw -y
+   sudo apt install ufw -y
    ```
 
 2. **Créer des règles dans le pare-feu** :
 
    ```bash
-     sudo ufw allow 20 && sudo ufw allow 21
+   sudo ufw allow 20 && sudo ufw allow 21
    ```
 Le port 21 est utilisé pour établir la connexion entre les 2 ordinateurs et le port 20 pour transférer des données.  
 
 3. **Editer le fichier de configuration de fsftpd** :
 
    ```bash
-     sudo nano /etc/vsftpd.conf
+   sudo nano /etc/vsftpd.conf
    ```
 
 4. **Modifier les lignes** :
@@ -77,7 +77,7 @@ pam_service_name=vsftpd
 1. **Créer les utilisateurs, à faire pour chaque utilisateur** :
 
    ```bash
-     sudo adduser nom_enseignant
+   sudo adduser nom_enseignant
    ```
 Mot de passe : azerty-123  
 Passer les questions suivantes (touche entrée)
@@ -85,28 +85,28 @@ Passer les questions suivantes (touche entrée)
 2. **Ajouter les utilisateurs dans la liste d'autorisation vsftpd, à faire pour chaque utilisateur** :
  
    ```bash
-     echo nom_enseignant | sudo tee -a /etc/vsftpd.userlist
+   echo nom_enseignant | sudo tee -a /etc/vsftpd.userlist
    ```
 3. **Création du répertoire /home de l'utilisateur**
    
    ```bash
-      mkdir /home/nom_enseignant
+   mkdir /home/nom_enseignant
    ```
    
 4. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire** :
 
    ```bash
-     sudo chown -R nom_enseignant:nom_enseignant /home/nom_enseignant/
+   sudo chown -R nom_enseignant:nom_enseignant /home/nom_enseignant/
    ```
    ```bash
-     sudo chmod 700 /home/nom_enseignant/
+   sudo chmod 700 /home/nom_enseignant/
    ```
 chmod 700 = droit d'écriture, de lecture et d'éxecution uniquement pour le propriétaire
 
 5. **Contrôler et modifier de nouveau le fichier de configuration etc/vsftpd.conf (des lignes sont à ajouter)**
  
    ```bash
-     sudo nano /etc/vsftpd.conf
+   sudo nano /etc/vsftpd.conf
    ```
 local_enable=YES  
 write_enable=YES  
@@ -119,7 +119,7 @@ local_root=/home/$USER
 6. **Redémarrer le service vsftpd** :
    
    ```bash
-     sudo systemctl restart vsftpd
+   sudo systemctl restart vsftpd
    ```
 
 # **Étape 4 : Téléchargement d'un client FTP et test !**
@@ -127,7 +127,7 @@ local_root=/home/$USER
 1. **Sur le PC client, télécharger FileZilla pour se connecter en FTP** :
 
    ```bash
-     https://filezilla-project.org/download.php?type=client
+   https://filezilla-project.org/download.php?type=client
    ```
 
 2. **Pour se connecter en ftp, remplir les champs** :
@@ -147,11 +147,11 @@ Par défaut, il est téléchargé puis déplacé dans C:\Users\nom_session
 # **Annexe 1 : Script ajout_utilisateur_ftp.sh**
 
    ```bash
-      cd /tmp
+   cd /tmp
    ```
 
    ```bash
-      nano ajout_utilisateur_ftp.sh
+   nano ajout_utilisateur_ftp.sh
    ```
 
    ```bash
@@ -193,9 +193,9 @@ done
    ```
 
    ```bash
-      chmod +x ajout_utilisateur_ftp.sh
+   chmod +x ajout_utilisateur_ftp.sh
    ```
 
    ```bash
-      ./ajout_utilisateur_ftp.sh
+   ./ajout_utilisateur_ftp.sh
    ```

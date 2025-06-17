@@ -151,15 +151,11 @@ Par défaut, il est téléchargé puis déplacé dans C:\Users\nom_session
    ```
 
    ```bash
-      sudo nano ajout_utilisateurs.sh
+      nano ajout_utilisateur_ftp.sh
    ```
 
    ```bash
-      sudo chmod +x ajout_utilisateurs.sh
-   ```
-
-   ```bash
-   #!/bin/bash
+#!/bin/bash
 
 # Mot de passe par défaut pour tout le monde
 mot_de_passe="azerty-123"
@@ -194,4 +190,12 @@ do
     exit 0
   fi
 done
+   ```
+
+   ```bash
+      chmod +x ajout_utilisateur_ftp.sh
+   ```
+
+   ```bash
+      ./ajout_utilisateur_ftp.sh
    ```

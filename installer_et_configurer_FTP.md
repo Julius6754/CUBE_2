@@ -142,11 +142,11 @@ Par défaut, il est téléchargé puis déplacé dans C:\Users\nom_session
 # **Annexe 1 : Script ajout_utilisateur_ftp.sh**
 
    ```bash
-   cd /tmp
+   cd /usr/local/bin
    ```
 
    ```bash
-   nano ajout_utilisateur_ftp.sh
+   sudo nano ajout_utilisateur_ftp.sh
    ```
 
    ```bash
@@ -186,7 +186,7 @@ done
    ```
 
    ```bash
-   chmod +x ajout_utilisateur_ftp.sh
+   sudo chmod +x ajout_utilisateur_ftp.sh
    ```
 
    ```bash

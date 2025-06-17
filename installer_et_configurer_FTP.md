@@ -72,7 +72,7 @@ chroot_local_user=YES (décommenter)
 pam_service_name=vsftpd  
 
 # **Étape 3 : Création et droits des utilisateurs**
-#### **Les sous-étapes 1, 2, 3 et 4 sont automatisées dans un script. Voir Annexe 1**
+#### **Les sous-étapes 1, 2, 3 et 4 sont automatisées dans un script. Voir Annexe 1 en bas de page**
 
 1. **Créer les utilisateurs, à faire pour chaque utilisateur** :
 

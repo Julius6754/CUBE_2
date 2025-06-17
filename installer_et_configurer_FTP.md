@@ -72,7 +72,7 @@ chroot_local_user=YES (décommenter)
 pam_service_name=vsftpd  
 
 # **Étape 3 : Création et droits des utilisateurs**
-#### **Les sous-étapes 1, 2, 3 et 4 sont automatisées dans un script. Voir Annexe 1 en bas de page ajout_utilisateur_ftp.sh**
+#### **Les sous-étapes 1, 2 et 3 sont automatisées dans un script. Voir Annexe 1 en bas de page ajout_utilisateur_ftp.sh**
 
 1. **Créer les utilisateurs, à faire pour chaque utilisateur** :
 
@@ -87,13 +87,8 @@ Passer les questions suivantes (touche entrée)
    ```bash
    echo nom_enseignant | sudo tee -a /etc/vsftpd.userlist
    ```
-3. **Création du répertoire /home de l'utilisateur**
    
-   ```bash
-   mkdir /home/nom_enseignant
-   ```
-   
-4. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire** :
+3. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire** :
 
    ```bash
    sudo chown -R nom_enseignant:nom_enseignant /home/nom_enseignant/
@@ -103,7 +98,7 @@ Passer les questions suivantes (touche entrée)
    ```
 chmod 700 = droit d'écriture, de lecture et d'éxecution uniquement pour le propriétaire
 
-5. **Contrôler et modifier de nouveau le fichier de configuration etc/vsftpd.conf (des lignes sont à ajouter)**
+4. **Contrôler et modifier de nouveau le fichier de configuration etc/vsftpd.conf (des lignes sont à ajouter)**
  
    ```bash
    sudo nano /etc/vsftpd.conf
@@ -179,8 +174,6 @@ do
     fi
     # Ajout de l'utilisateur dans la liste d autorisation vsftpd
     echo $utilisateur | sudo tee -a /etc/vsftpd.userlist
-    # Création du repertoire /home de l'utilisateur
-    mkdir /home/$utilisateur
     # Restriction des accès. L'utilisateur ne peut accéder qu'à son propre répertoire
     sudo chown -R $utilisateur:$utilisateur /home/$utilisateur/
     # chmod 700 = droit d écriture, de lecture et d éxecution uniquement pour le propriétaire
@@ -197,5 +190,5 @@ done
    ```
 
    ```bash
-   ./ajout_utilisateur_ftp.sh
+   sudo ./ajout_utilisateur_ftp.sh
    ```

@@ -142,9 +142,22 @@ Port : Laisser vide (par défaut il s'agit du port 21)
 Créer un fichier .txt sur le bureau du client windows. 
 Glisser le fichier dans le repertoire / sur FileZilla.  
 Ensuite, double cliquer sur le fichier créé dans FileZilla.  
-Par défaut, il est téléchargé dans C:\Users\nom_session  
+Par défaut, il est téléchargé puis déplacé dans C:\Users\nom_session 
 
 # **Annexe 1 : ajout_utilisateur.sh**
+
+   ```bash
+      cd /tmp
+   ```
+
+   ```bash
+      sudo nano ajout_utilisateurs.sh
+   ```
+
+   ```bash
+      sudo chmod +x ajout_utilisateurs.sh
+   ```
+
    ```bash
    #!/bin/bash
 

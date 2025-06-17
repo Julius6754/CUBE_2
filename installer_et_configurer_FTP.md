@@ -72,7 +72,7 @@ chroot_local_user=YES (décommenter)
 pam_service_name=vsftpd  
 
 # **Étape 3 : Création et droits des utilisateurs**
-#### **Les sous-étapes 1, 2, 3 et 4 sont automatisées dans un script. Voir Annexe 1 en bas de page**
+#### **Les sous-étapes 1, 2, 3 et 4 sont automatisées dans un script. Voir Annexe 1 en bas de page ajout_utilisateur_ftp.sh**
 
 1. **Créer les utilisateurs, à faire pour chaque utilisateur** :
 
@@ -144,7 +144,7 @@ Glisser le fichier dans le repertoire / sur FileZilla.
 Ensuite, double cliquer sur le fichier créé dans FileZilla.  
 Par défaut, il est téléchargé puis déplacé dans C:\Users\nom_session 
 
-# **Annexe 1 : ajout_utilisateur.sh**
+# **Annexe 1 : Script ajout_utilisateur_ftp.sh**
 
    ```bash
       cd /tmp

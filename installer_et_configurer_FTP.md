@@ -143,3 +143,42 @@ Créer un fichier .txt sur le bureau du client windows.
 Glisser le fichier dans le repertoire / sur FileZilla.  
 Ensuite, double cliquer sur le fichier créé dans FileZilla.  
 Par défaut, il est téléchargé dans C:\Users\nom_session  
+
+# **Annexe 1 : ajout_utilisateur.sh**
+   ```bash
+   #!/bin/bash
+
+# Mot de passe par défaut pour tout le monde
+mot_de_passe="azerty-123"
+
+while true
+do
+  read -p "Veux tu créer un user (o/n)" reponse
+  if [[ $reponse == "o" ]]
+  then
+    echo "On va créer un nouvel utilisateur"
+    read -p "Quel est le nom de l'utilisateur à créer ?" utilisateur
+    if id "$utilisateur" &>/dev/null; then
+       echo "Utilisateur $utilisateur existe déjà, on ignore."
+    else
+       echo "Ajout de l'utilisateur $utilisateur..."
+       # Création de l'utilisateur sans interaction
+       sudo adduser --gecos "" --disabled-password "$utilisateur"
+       # Attribution du mot de passe
+       echo "$utilisateur:$mot_de_passe" | sudo chpasswd
+       echo "Utilisateur $utilisateur ajouté avec mot de passe définit."
+    fi
+    # Ajout de l'utilisateur dans la liste d autorisation vsftpd
+    echo $utilisateur | sudo tee -a /etc/vsftpd.userlist
+    # Création du repertoire /home de l'utilisateur
+    mkdir /home/$utilisateur
+    # Restriction des accès. L'utilisateur ne peut accéder qu'à son propre répertoire
+    sudo chown -R $utilisateur:$utilisateur /home/$utilisateur/
+    # chmod 700 = droit d écriture, de lecture et d éxecution uniquement pour le propriétaire
+    sudo chmod 700 /home/$utilisateur/
+  else
+    echo "Pas de création, fin d'ajout d'utilisateur"
+    exit 0
+  fi
+done
+   ```

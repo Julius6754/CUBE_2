@@ -16,7 +16,7 @@ sudo systemctl status kea-dhcp4-server
 ```
 # **Étape 2 : Permettre au DHCP Linux de prendre le relais lorsque le DHCP Windows Server ne répond pas**
 
-1. **Créer un script qui permet la bascule, "IP_WS" à adpater :**
+1. **Créer un script qui permet la bascule, "IP_WS" à adapter :**
 Installer l'outil dhcping :
 ```bash
 sudo apt update && sudo apt install dhcping -y

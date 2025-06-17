@@ -21,7 +21,7 @@ sudo systemctl status kea-dhcp4-server
 sudo apt update && sudo apt install dhcping -y
 ```
 
-2. **Créer un script qui permet la bascule, "IP_WS" est à adapter.**
+2. **Créer un script qui permet la bascule :**
 ```bash
 cd /usr/local/bin
 ```
@@ -29,7 +29,7 @@ cd /usr/local/bin
 ```bash
 sudo nano dhcp-bascule.sh
 ```
-   
+"IP_WS" est à adapter :
 ```bash
    #!/bin/bash
 
@@ -42,7 +42,7 @@ sudo nano dhcp-bascule.sh
    LOG="/var/log/dhcp-bascule.log"
    # Date et heure actuelles pour plus d'information dans les logs
    DATE=$(date)
-   # Teste si le serveur Windows DHCP est joignable grâce à dhcping
+   # Ping du DHCP Windows Server pour savoir s'il est actif ou non
    if /usr/sbin/dhcping -s $IP_WS -c 1 -t 2 >> $LOG 2>&1; then
     echo "$DATE: Windows Server DHCP UP - arrêt du DHCP Linux" >> $LOG
     systemctl stop kea-dhcp4-server

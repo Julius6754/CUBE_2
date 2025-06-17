@@ -162,7 +162,7 @@ mot_de_passe="azerty-123"
 
 while true
 do
-  read -p "Veux tu créer un user (o/n)" reponse
+  read -p "Veux tu créer un utilisateur (o/n)" reponse
   if [[ $reponse == "o" ]]
   then
     echo "On va créer un nouvel utilisateur"

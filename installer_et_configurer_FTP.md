@@ -72,8 +72,9 @@ chroot_local_user=YES (décommenter)
 pam_service_name=vsftpd  
 
 # **Étape 3 : Création et droits des utilisateurs**
+#### **Les sous-étapes 1, 2, 3 et 4 sont automatisées dans un script. Voir Annexe 1**
 
-1. **Créer les utilisateurs, à faire pour chaque utilisateur (il est possible de créer un script qui automatise le tout)** :
+1. **Créer les utilisateurs, à faire pour chaque utilisateur** :
 
    ```bash
      sudo adduser nom_enseignant
@@ -81,7 +82,7 @@ pam_service_name=vsftpd
 Mot de passe : azerty-123  
 Passer les questions suivantes (touche entrée)
 
-2. **Ajouter les utilisateurs dans la liste d'autorisation vsftpd, à faire pour chaque utilisateur (il est possible de créer un script qui automatise le tout)** :
+2. **Ajouter les utilisateurs dans la liste d'autorisation vsftpd, à faire pour chaque utilisateur** :
  
    ```bash
      echo nom_enseignant | sudo tee -a /etc/vsftpd.userlist
@@ -92,7 +93,7 @@ Passer les questions suivantes (touche entrée)
       mkdir /home/nom_enseignant
    ```
    
-4. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire (à répéter pour chaque enseignant)** :
+4. **Maintenant, nous voulons restreindre l'accès aux utilisateurs pour que l'enseignant ne puisse accéder qu'à son propre répertoire** :
 
    ```bash
      sudo chown -R nom_enseignant:nom_enseignant /home/nom_enseignant/

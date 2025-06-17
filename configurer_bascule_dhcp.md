@@ -87,7 +87,7 @@ mar. 17 juin 2025 20:40:01 CEST: Windows Server DHCP DOWN - démarrage du DHCP L
 
 5. **(optionnel) Tester manuellement le ping vers le DHCP Windows Server (adapter l'adresse IP Windows Server)** :
 ```bash
-sudo dhcping -s 10.0.1.120 -c 1 -t 2 -v
+sudo dhcping -s 10.0.1.120 -c 1 -t 3 -v
 ```
 Réponses possibles :
 Got answer from: 10.0.1.120  

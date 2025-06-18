@@ -36,7 +36,7 @@ sudo nano dhcp-bascule.sh
    # Définit le chemin pour trouver les commandes
    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-   # IP du serveur DHCP principal (Windows)
+   # IP du serveur DHCP Windows Server
    IP_WS="10.0.1.120"
    # Création d'un fichier log pour surveiller le bon fonctionnement de la bascule
    LOG="/var/log/dhcp-bascule.log"

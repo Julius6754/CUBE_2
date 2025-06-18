@@ -31,25 +31,24 @@ sudo nano dhcp-bascule.sh
 ```
 "IP_WS" est à adapter :
 ```bash
-   #!/bin/bash
+#!/bin/bash
 
-   # Définit le chemin pour trouver les commandes
-   PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-   # IP du serveur DHCP Windows Server
-   IP_WS="10.0.1.120"
-   # Création d'un fichier log pour surveiller le bon fonctionnement de la bascule
-   LOG="/var/log/dhcp-bascule.log"
-   # Date et heure actuelles pour plus d'information dans les logs
-   DATE=$(date)
-   # Ping du DHCP Windows Server pour savoir s'il est actif ou non
-   if /usr/sbin/dhcping -s $IP_WS -c 1 -t 2 >> $LOG 2>&1; then
-    echo "$DATE: Windows Server DHCP UP - arrêt du DHCP Linux" >> $LOG
-    systemctl stop kea-dhcp4-server
-   else
+# Définit le chemin pour trouver les commandes
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# IP du serveur DHCP Windows Server
+IP_WS="10.0.1.120"
+# Création d'un fichier log pour surveiller le bon fonctionnement de la bascule
+LOG="/var/log/dhcp-bascule.log"
+# Date et heure actuelles pour plus d'information dans les logs
+DATE=$(date)
+# Ping du DHCP Windows Server pour savoir s'il est actif ou non
+  if /usr/sbin/dhcping -s $IP_WS -c 1 -t 2 >> $LOG 2>&1; then
+  echo "$DATE: Windows Server DHCP UP - arrêt du DHCP Linux" >> $LOG
+  systemctl stop kea-dhcp4-server
+    else
     echo "$DATE: Windows Server DHCP DOWN - démarrage du DHCP Linux et attribution de nouvelles adresses IP" >> $LOG
     systemctl start kea-dhcp4-server
-   fi
+  fi
 ```
 ```bash
 sudo chmod +x dhcp-bascule.sh
